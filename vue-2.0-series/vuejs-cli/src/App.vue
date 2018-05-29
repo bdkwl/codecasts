@@ -16,10 +16,14 @@ export default {
   },
   data() {
     return {
-      todos: [
-        {id:1, title:'Learn Vuejs', completed:true}
-      ]
+      todos: []
     }
+  },
+  mounted() {
+      this.axios.get('http://www.lovueapi.com/api/todos').then((response) => {
+        console.log(response.data)
+        this.todos = response.data
+      })
   },
   computed: {
     todoCount() {

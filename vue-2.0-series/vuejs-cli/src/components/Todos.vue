@@ -1,5 +1,5 @@
 <template>
-  <ul class="list-group">
+  <ul class="list-group" v-if="todos.length > 0">
     <!-- v-for 循环数组数据 -->
     <li class="list-group-item" v-for="(todo,index) in todos" v-bind:class="{ 'completed' : todo.completed }">
       {{todo.title}}
