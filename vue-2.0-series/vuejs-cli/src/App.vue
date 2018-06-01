@@ -1,18 +1,15 @@
 <template>
   <div id="app">
-    <todos v-bind:todos="todos"></todos>
-    <todo-form v-bind:todos="todos"></todo-form>
+    <router-view :todos="todos"></router-view>
   </div>
 </template>
 
 <script>
-import Todos from './components/Todos'
-import TodoForm from './components/TodoForm'
 
 export default {
   name: 'App',
   components: {
-    Todos, TodoForm
+
   },
   data() {
     return {

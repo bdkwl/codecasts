@@ -3,14 +3,28 @@
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueRouter from 'vue-router'
 import App from './App'
+import Todos from './components/Todos'
+import Todo from './components/Todo'
 
 Vue.use(VueAxios, axios)
+Vue.use(VueRouter)
 Vue.config.productionTip = false
+
+/* vue-router */
+const routes = [
+    {path: '/', component: Todos},
+    {path: '/todo/:id', component: Todo, name: 'todo'}
+]
+const router = new VueRouter({
+    routes
+})
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  components: { App },
-  template: '<App/>'
+    el: '#app',
+    components: {App},
+    template: '<App/>',
+    router
 })
